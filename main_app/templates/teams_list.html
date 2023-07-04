@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% comment %} for head title tags and helping us with SEO {% endcomment %}
+{% block title %}Artist{% endblock  %}
+
+{% block content %}
+
+<h1>NFL Teams</h1>
+
+<div class="team-gallary">
+    {% for teams in teams %}
+    <div class="img">
+        <img src="{{teams.image}}" alt="{{artist.name}}" />
+    </div>
+    <h2>{{teams.name}}</h2>
+    <h3>{{teams.conference}}</h3>
+    {% empty %}
+    <p>No teams available</p>
+    {% endfor %}
+    {% endblock %}
+</div>

@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
+    <script src="{% static 'scripts/main.js' %}" defer></script>
+
     <title>NFL TEAMS {% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -14,6 +17,9 @@
             </div>
             <div class="about">
                 <a href="/about">about</a>
+            </div>
+            <div class="teams">
+                <a href="/teams">Teams</a>
             </div>
         </nav>
         <div class="container">
