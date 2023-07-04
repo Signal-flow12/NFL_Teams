@@ -24,20 +24,17 @@
 
 <div class="team-list">
     {% for teams in teams %}
-        <a href="{% url 'team_detail' teams.pk %}">
-            <div class="team">
-                    <h1>{{teams.name}}</h1>
-                    <div class="img">
-                        <img src="{{teams.img}}" alt="{{teams.name}}" />
-                    </div>
-                    <h3>{{teams.conference}}</h3>
-                    <h4>Superbowl Wins: {{teams.superbowlwins}}</h4>
-                </a>    
-                {% empty %}
-            </div>
-            <p>No teams available</p>
-    
-        
-        {% endfor %}
+    <div class="team">
+        <h1>{{teams.name}}</h1>
+        <div class="img">
+            <img src="{{teams.img}}" alt="{{teams.name}}" />
+        </div>
+        <h3>{{teams.conference}}</h3>
+        <h4>Superbowl Wins: {{teams.superbowlwins}}</h4>
+        {% empty %}
+    </div>
+        <p>No teams available</p>
+
+    {% endfor %}
     {% endblock %}
 </div>
