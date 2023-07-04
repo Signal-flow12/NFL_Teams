@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Teams(models.Model):
+class Team(models.Model):
     name = models.CharField(max_length=150)
     img = models.CharField(max_length=300)
     conference = models.CharField(max_length=25)
