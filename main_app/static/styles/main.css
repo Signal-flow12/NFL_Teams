@@ -2,6 +2,16 @@ body {
     background-color: rgb(236, 71, 88) ;
 }
 
+.team-list {
+    border: 3px solid black;
+}
+
+/* .team{
+    display: flex;
+    flex-direction: row;
+    border: 3px solid black;
+} */
+
 .img{
     display: flex;
     width: 300px;
@@ -9,3 +19,4 @@ body {
     border: 3px solid black;
     object-fit: contain;
 }
+

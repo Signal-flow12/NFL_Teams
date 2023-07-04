@@ -7,15 +7,33 @@
 
 <h1>NFL Teams</h1>
 
-<div class="team-gallary">
-    {% for teams in teams %}
-    <div class="img">
-        <img src="{{teams.image}}" alt="{{artist.name}}" />
+<form class="mb-5" method="get">
+    <div class="field has-addons">
+      <div class="control">
+        <!--  Our input will search by name of teams  -->
+        <input class="input" type="text" name="name" placeholder="name" />
+      </div>
+      <div class="control">
+        <input class="button is-success" type="submit" value="Search" />
+      </div>
     </div>
-    <h2>{{teams.name}}</h2>
-    <h3>{{teams.conference}}</h3>
-    {% empty %}
-    <p>No teams available</p>
+    <!--  This anchor tag will redirect back to teams list without a query param -->
+    <a class="button is-dark" href="{% url 'teams_list' %}">Clear Search</a>
+  </form>
+
+<div class="team-list">
+    {% for teams in teams %}
+    <div class="team">
+        <h1>{{teams.name}}</h1>
+        <div class="img">
+            <img src="{{teams.img}}" alt="{{teams.name}}" />
+        </div>
+        <h3>{{teams.conference}}</h3>
+        <h4>Superbowl Wins: {{teams.superbowlwins}}</h4>
+        {% empty %}
+    </div>
+        <p>No teams available</p>
+
     {% endfor %}
     {% endblock %}
 </div>
