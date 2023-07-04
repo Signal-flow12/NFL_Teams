@@ -3,6 +3,7 @@ from django.views import View
 from django.http import HttpResponse 
 from django.views.generic.base import TemplateView
 from .models import Team 
+from django.views.generic import DetailView
 
 # Create your views here.
 class Home(TemplateView):
@@ -20,6 +21,12 @@ class TeamsList(TemplateView):
         name = self.request.GET.get("name")
         if name != None:
             context["teams"] = Team.objects.filter(name__icontains=name)
+            context["header"] = f"{name.upper()}"
         else:
             context["teams"] = Team.objects.all()
+            context["header"] = "NFL Teams"
         return context
+    
+class TeamDetail(DetailView):
+    model = Team
+    template_name = "team_detail.html"

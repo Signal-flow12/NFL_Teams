@@ -5,16 +5,17 @@
 
 {% block content %}
 
-<h1>NFL Teams</h1>
 
-<form class="mb-5" method="get">
-    <div class="field has-addons">
-      <div class="control">
+<h1 class="header">{{header}}</h1>
+
+<form method="get">
+    <div>
+      <div>
         <!--  Our input will search by name of teams  -->
         <input class="input" type="text" name="name" placeholder="name" />
       </div>
-      <div class="control">
-        <input class="button is-success" type="submit" value="Search" />
+      <div>
+        <input type="submit" value="Search" />
       </div>
     </div>
     <!--  This anchor tag will redirect back to teams list without a query param -->
