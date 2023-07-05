@@ -25,5 +25,15 @@ class Players(models.Model):
 
     def __str__(self):
         return self.playername
+    
+class Fantasy_Team(models.Model):
+
+    title = models.CharField(max_length=150)
+    # this is going to create the many to many relationship and join table
+    players = models.ManyToManyField(Players)
+
+    def __str__(self):
+        return self.title
+
 
 

@@ -1,4 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>NFL Fantasy Teams</h1>
+
+<div>
+    {% for team in fantasy_teams %}
+        <div>
+            <h3>{{ team.title }}</h3>
+            <hr />
+
+            {% for player in team.players.all %}
+                <div>
+                    <span>{{ forloop.counter }}</span>
+                    <span><b>{{ player.playername }}</b></span>
+                </div>
+            {% endfor %}
+        </div>
+    {% empty %} 
+        <div class="playlist mb-5">There are no players on your team</div>
+    {% endfor %}
+</div>
 {% endblock %}

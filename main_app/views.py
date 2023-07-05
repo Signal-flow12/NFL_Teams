@@ -1,13 +1,19 @@
+from typing import Any, Dict
 from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse 
 from django.views.generic.base import TemplateView
-from .models import Team, Players
+from .models import Team, Players, Fantasy_Team
 from django.views.generic import DetailView
 
 # Create your views here.
 class Home(TemplateView):
     template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["fantasy_teams"] = Fantasy_Team.objects.all()
+        return context
     
 class About(TemplateView):
     template_name = 'about.html'
