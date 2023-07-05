@@ -9,12 +9,54 @@
 <h3>{{team.conference}}</h3>
 <h4>Superbowl Wins: {{team.superbowlwins}}</h4>
 
+<h2> Add a player </h2>
+
+<!-- inside detail songs element below the header -->
+
+<!-- Here you can see the action we provided
+  is to the song_create route with the artist pk -->
+  <form class="mb-5" action="{% url 'player_create' team.pk %}" method="post">
+      {% csrf_token %}
+      <div class="field has-addons">
+          <div class="control">
+              <input
+                  class="input"
+                  type="text"
+                  name="playername"
+                  placeholder="Player"
+                  required
+              />
+          </div>
+          <div class="control">
+              <input
+                  class="input"
+                  type="text"
+                  name="postion"
+                  placeholder="Postion"
+                  required
+              />
+          </div>
+          <div class="control">
+              <input
+                  class="input"
+                  type="text"
+                  name="points"
+                  placeholder="Fantasy Points"
+                  required
+              />
+          </div>
+          <div class="control">
+              <input class="button is-primary" type="submit" value="Add Player" />
+          </div>
+      </div>
+  </form>
+
 <!-- inside container -->
-<div class="detail__songs mb-5">
-    <h3 class="title is-3">Players</h3>
+<div>
+    <h3 class="title is-3">Top Players</h3>
 
     {% for player in team.players.all %}
-    <div class="song">
+    <div>
       <span>{{forloop.counter}}</span>
       <span><b>{{player.playername}}</b></span>
       <span> - Postion:{{player.postion}}</span>
@@ -30,6 +72,7 @@
 
     {% endfor %}
   </div>
-<!--  above about section  -->
+
+
 
 {% endblock %}

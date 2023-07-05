@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse 
 from django.views.generic.base import TemplateView
-from .models import Team 
+from .models import Team, Players
 from django.views.generic import DetailView
 
 # Create your views here.
@@ -30,3 +30,14 @@ class TeamsList(TemplateView):
 class TeamDetail(DetailView):
     model = Team
     template_name = "team_detail.html"
+
+
+class PlayerCreate(View):
+
+    def post(self, request, pk):
+        playername = request.POST.get("playername")
+        postion = request.POST.get("postion")
+        points = request.POST.get("points")
+        team = Team.objects.get(pk=pk)
+        Players.objects.create(playername=playername, postion=postion, points=points, team=team)
+        return redirect('team_detail', pk=pk)
