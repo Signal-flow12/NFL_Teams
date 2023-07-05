@@ -9,4 +9,27 @@
 <h3>{{team.conference}}</h3>
 <h4>Superbowl Wins: {{team.superbowlwins}}</h4>
 
+<!-- inside container -->
+<div class="detail__songs mb-5">
+    <h3 class="title is-3">Players</h3>
+
+    {% for player in team.players.all %}
+    <div class="song">
+      <span>{{forloop.counter}}</span>
+      <span><b>{{player.playername}}</b></span>
+      <span> - Postion:{{player.postion}}</span>
+      <span> - Points:{{player.points}}</span>
+
+    </div>
+		{% empty %}
+    <article class="message">
+      <div class="message-header">
+        <p>No Players Available</p>
+      </div>
+    </article>
+
+    {% endfor %}
+  </div>
+<!--  above about section  -->
+
 {% endblock %}

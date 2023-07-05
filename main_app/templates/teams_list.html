@@ -24,6 +24,7 @@
 
 <div class="team-list">
     {% for team in teams %}
+    <a href="{% url 'team_detail' team.pk %}">
     <div class="team">
         <h1>{{team.name}}</h1>
         <div class="img">
@@ -31,7 +32,11 @@
         </div>
         <h3>{{team.conference}}</h3>
         <h4>Superbowl Wins: {{team.superbowlwins}}</h4>
-        {% empty %}
+        </div>
+     </div>
+    </a>
+
+   {% empty %}
     </div>
         <p>No teams available</p>
 
