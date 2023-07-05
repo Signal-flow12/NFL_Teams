@@ -12,6 +12,10 @@
                 <div>
                     <span>{{ forloop.counter }}</span>
                     <span><b>{{ player.playername }}</b></span>
+                    <span>player</span>
+                    <a href="{% url 'fantasy_player_assoc' team.pk player.pk %}?assoc=remove">
+                      X  
+                    </a>
                 </div>
             {% endfor %}
         </div>

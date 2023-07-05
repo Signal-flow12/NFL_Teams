@@ -47,3 +47,17 @@ class PlayerCreate(View):
         team = Team.objects.get(pk=pk)
         Players.objects.create(playername=playername, postion=postion, points=points, team=team)
         return redirect('team_detail', pk=pk)
+    
+
+class FantasyPlayerAssoc(View):
+    def get(self, request, pk, players_pk):
+        assoc = request.GET.get("assoc")
+        if assoc == "remove":
+            team = Fantasy_Team.objects.get(pk=pk)
+            player = Players.objects.get(pk=players_pk)
+            team.players.remove(player)
+        if assoc == "add":
+            team = Fantasy_Team.objects.get(pk=pk)
+            player = Players.objects.get(pk=players_pk)
+            team.players.add(player)
+        return redirect('home')
