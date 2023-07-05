@@ -23,14 +23,14 @@
   </form>
 
 <div class="team-list">
-    {% for teams in teams %}
+    {% for team in teams %}
     <div class="team">
-        <h1>{{teams.name}}</h1>
+        <h1>{{team.name}}</h1>
         <div class="img">
-            <img src="{{teams.img}}" alt="{{teams.name}}" />
+            <img src="{{team.img}}" alt="{{team.name}}" />
         </div>
-        <h3>{{teams.conference}}</h3>
-        <h4>Superbowl Wins: {{teams.superbowlwins}}</h4>
+        <h3>{{team.conference}}</h3>
+        <h4>Superbowl Wins: {{team.superbowlwins}}</h4>
         {% empty %}
     </div>
         <p>No teams available</p>
