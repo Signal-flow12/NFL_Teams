@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>NFL Fantasy Teams</h1>
+<h1 class="title">NFL Fantasy Teams</h1>
+
+<a class="create-team" href="{% url 'fantasy_create' %}">Create a Fantasy Team</a>
 
 <div>
     {% for team in fantasy_teams %}

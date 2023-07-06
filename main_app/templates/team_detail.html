@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Team Detail</h1>
 <h1>{{team.name}}</h1>
 <div class="img">
     <img src="{{team.img}}" alt="{{team.name}}" />
@@ -9,70 +8,42 @@
 <h3>{{team.conference}}</h3>
 <h4>Superbowl Wins: {{team.superbowlwins}}</h4>
 
-<h2> Add a player </h2>
+<h2>Add a player</h2>
 
-<!-- inside detail songs element below the header -->
+<form class="mb-5" action="{% url 'player_create' team.pk %}" method="post">
+    {% csrf_token %}
+    <div class="field has-addons">
+        <div class="control">
+            <input class="input" type="text" name="playername" placeholder="Player" required />
+        </div>
+        <div class="control">
+            <input class="input" type="text" name="position" placeholder="Position" required />
+        </div>
+        <div class="control">
+            <input class="input" type="text" name="points" placeholder="Fantasy Points" required />
+        </div>
+        <div class="control">
+            <input class="button is-primary" type="submit" value="Add Player" />
+        </div>
+    </div>
+</form>
 
-<!-- Here you can see the action we provided
-  is to the song_create route with the artist pk -->
-  <form class="mb-5" action="{% url 'player_create' team.pk %}" method="post">
-      {% csrf_token %}
-      <div class="field has-addons">
-          <div class="control">
-              <input
-                  class="input"
-                  type="text"
-                  name="playername"
-                  placeholder="Player"
-                  required
-              />
-          </div>
-          <div class="control">
-              <input
-                  class="input"
-                  type="text"
-                  name="postion"
-                  placeholder="Postion"
-                  required
-              />
-          </div>
-          <div class="control">
-              <input
-                  class="input"
-                  type="text"
-                  name="points"
-                  placeholder="Fantasy Points"
-                  required
-              />
-          </div>
-          <div class="control">
-              <input class="button is-primary" type="submit" value="Add Player" />
-          </div>
-      </div>
-  </form>
-
-<!-- inside container -->
 <div>
     <h3 class="title is-3">Top Players</h3>
 
     {% for player in team.players.all %}
     <div>
-      <span>{{forloop.counter}}</span>
-      <span><b>{{player.playername}}</b></span>
-      <span> - Postion:{{player.postion}}</span>
-      <span> - Points:{{player.points}}</span>
-
-    </div>
-		{% empty %}
+        <span>{{forloop.counter}}</span>
+        <span><b>{{player.playername}}</b></span>
+        <span> - Position:{{player.position}}</span>
+        <span> - Points:{{player.points}}</span>
+    {% empty %}
     <article class="message">
-      <div class="message-header">
-        <p>No Players Available</p>
-      </div>
+        <div class="message-header">
+            <p>No Players Available</p>
+        </div>
     </article>
-
     {% endfor %}
-  </div>
-
-
+</div>
 
 {% endblock %}

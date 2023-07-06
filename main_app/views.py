@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import Team, Players, Fantasy_Team
 from django.views.generic import DetailView
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 class Home(TemplateView):
@@ -61,3 +62,9 @@ class FantasyPlayerAssoc(View):
             player = Players.objects.get(pk=players_pk)
             team.players.add(player)
         return redirect('home')
+    
+class FantasyCreate(CreateView):
+    model = Fantasy_Team
+    fields = ['title']
+    template_name = "fantasy_create.html"
+    success_url = "/"

@@ -4,20 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
     <script src="{% static 'scripts/main.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
 
-    <title>NFL TEAMS {% block title %}{% endblock %}</title>
+    <title>NFL TEAMS!
+        {% block title %}{% endblock %}</title>
 </head>
 <body>
-    <div class="nav">
-        <nav>
+    <div>
+        <nav class="nav">
             <div class="Home">
                 <a href="/">Home</a>
             </div>
-            <div class="about">
+            <!-- <div class="about">
                 <a href="/about">about</a>
-            </div>
+            </div> -->
             <div class="teams">
                 <a href="/teams">Teams</a>
             </div>

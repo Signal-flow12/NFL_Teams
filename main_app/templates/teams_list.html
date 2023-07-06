@@ -6,9 +6,9 @@
 {% block content %}
 
 
-<h1 class="header">{{header}}</h1>
+<h1 class="title">{{header}}</h1>
 
-<form method="get">
+<form class="search" method="get">
     <div>
       <div>
         <!--  Our input will search by name of teams  -->
@@ -27,12 +27,13 @@
     <a href="{% url 'team_detail' team.pk %}">
     <div class="team">
         <h1>{{team.name}}</h1>
-        <div class="img">
-            <img src="{{team.img}}" alt="{{team.name}}" />
+        <div>
+            <img class="image" src="{{team.img}}" alt="{{team.name}}" />
         </div>
         <h3>{{team.conference}}</h3>
         <h4>Superbowl Wins: {{team.superbowlwins}}</h4>
-        </div>
+    </div>
+    <hr>
      </div>
     </a>
 
