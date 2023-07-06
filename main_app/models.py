@@ -19,7 +19,7 @@ class Team(models.Model):
 class Players(models.Model):
 
     playername = models.CharField(max_length=150)
-    postion = models.CharField(max_length=100)
+    position = models.CharField(max_length=100)
     points = models.IntegerField()
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="players")
 
