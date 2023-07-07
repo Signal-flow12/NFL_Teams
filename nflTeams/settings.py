@@ -109,8 +109,6 @@ WSGI_APPLICATION = 'nflTeams.wsgi.application'
 #DATABASE_URL Vari in render
 DATABASES = {
     'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgresql://postgres:postgres@localhost:5432/nflTeams',
         conn_max_age=600
     )
 }
