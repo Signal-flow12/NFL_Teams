@@ -43,7 +43,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
-    'render.apps.RenderConfig'
+    'render.apps.RenderConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -109,6 +109,8 @@ WSGI_APPLICATION = 'nflTeams.wsgi.application'
 #DATABASE_URL Vari in render
 DATABASES = {
     'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgresql://postgres:postgres@localhost:5432/nflTeams',
         conn_max_age=600
     )
 }
